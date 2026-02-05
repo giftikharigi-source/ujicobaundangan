@@ -6,207 +6,164 @@
     <title>Undangan Pernikahan Ghali & Lili</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* WARNA DASAR CREAM SESUAI PERMINTAAN */
         :root {
-            --cream: #F5F5DC;
-            --gold: #C5A059;
-            --dark-brown: #5D4037;
+            --cream: #FDF5E6; /* Cream hangat */
+            --gold-text: #8B6914;
+            --sunda-red: #800000;
         }
 
         body, html {
             margin: 0;
             padding: 0;
             background-color: var(--cream);
-            color: var(--dark-brown);
+            color: #4A3728;
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
         }
 
-        /* Background Animasi Megamendung Simpel */
         .slide {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
             text-align: center;
-            box-sizing: border-box;
-            border-bottom: 2px solid rgba(197, 160, 89, 0.2);
             position: relative;
-            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 15px solid transparent;
+            /* Border menggunakan motif megamendung */
+            border-image: url('https://www.transparenttextures.com/patterns/batik-fabric.png') 30 round;
         }
 
-        .megamendung-bg {
+        /* ORNAMEN WAYANG DI SETIAP SLIDE */
+        .wayang-decor {
+            width: 120px;
+            opacity: 0.8;
+            margin: 10px auto;
+        }
+
+        /* ANIMASI MEGAMENDUNG BERGERAK */
+        .bg-megamendung {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://padiumkm.id/product/batik-cirebon-mega-mendung/643527185029bbe4b23e1f9b'); /* Placeholder link */
-            background-size: 300px;
-            opacity: 0.05;
-            animation: moveBg 60s linear infinite;
-            z-index: 0;
-            pointer-events: none;
+            top:0; left:0; width:100%; height:100%;
+            background: url('https://padiumkm.id/product/batik-cirebon-mega-mendung/...') repeat;
+            opacity: 0.07;
+            animation: slideBg 100s linear infinite;
+            z-index: -1;
         }
 
-        @keyframes moveBg {
+        @keyframes slideBg {
             from { background-position: 0 0; }
             to { background-position: 1000px 1000px; }
         }
 
-        .content { position: relative; z-index: 1; max-width: 800px; }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--gold-text); margin: 0; }
+        h2 { font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 1.2rem; }
 
-        h1, h2 { font-family: 'Great Vibes', cursive; color: var(--gold); margin: 10px 0; }
-        .names { font-size: 3.5rem; }
-        .arabic { font-size: 1.5rem; margin-bottom: 15px; font-family: serif; }
-
-        .card {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--gold);
-            margin: 20px 0;
+        .card-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
         }
 
-        .info-box { flex: 1; min-width: 280px; margin: 15px; }
-        
-        .bank-logo { height: 40px; margin-bottom: 10px; }
-        
-        .btn {
-            background: var(--gold);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 25px;
+        .info-card {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border: 1px solid var(--gold-text);
+            border-radius: 10px;
+            min-width: 250px;
+        }
+
+        .countdown-item {
             display: inline-block;
-            margin-top: 10px;
-        }
-
-        #countdown {
-            display: flex;
-            gap: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .time-part {
-            background: var(--gold);
+            margin: 10px;
+            padding: 15px;
+            background: var(--gold-text);
             color: white;
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 60px;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
     <section class="slide">
-        <div class="megamendung-bg"></div>
-        <div class="content">
-            <p>The Wedding of</p>
-            <h1 class="names">Ghali & Lili</h1>
-            <p><strong>14 Februari 2026</strong></p>
-            <img src="https://via.placeholder.com/300x200?text=Foto+Dummy+Pasangan" alt="Prewedding" style="border-radius: 50%; border: 5px solid var(--gold); margin: 20px 0;">
-        </div>
+        <div class="bg-megamendung"></div>
+        <img src="https://www.pngwing.com/en/free-png-acfto" alt="Wayang Gunungan" class="wayang-decor">
+        <h2>THE WEDDING OF</h2>
+        <h1>Ghali & Lili</h1>
+        <p>14 Februari 2026</p>
     </section>
 
     <section class="slide">
-        <div class="content">
-            <h2>Ar-Rum : 21</h2>
-            <p class="arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً...</p>
-            <p><i>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang..."</i></p>
-            <audio controls autoplay loop>
-                <source src="link-audio-surat-ar-rum.mp3" type="audio/mpeg">
-                Browser kamu tidak mendukung audio.
+        <div class="bg-megamendung"></div>
+        <div style="max-width: 600px;">
+            <p style="font-size: 1.5rem; font-weight: bold;">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ...</p>
+            <p><i>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."</i> (QS. Ar-Rum: 21)</p>
+            <audio id="arRumAudio" autoplay loop>
+                <source src="URL_AUDIO_ANDA_DISINI.mp3" type="audio/mpeg">
             </audio>
         </div>
     </section>
 
     <section class="slide">
-        <div class="megamendung-bg"></div>
-        <div class="content">
-            <p>Bismillahirrahmannirrahim,<br>Memohon Rahmat dan Ridho Allah SWT, kami mengundang Bapak/Ibu untuk hadir di resepsi kami:</p>
-            <div class="card">
-                <div class="info-box">
-                    <h2>Ghali Iftikhari</h2>
-                    <p>Anak pertama dari <br><b>Bpk Ismail Effendy & Ibu Mahya Hidayati</b></p>
-                </div>
-                <div style="font-size: 2rem; color: var(--gold);">❤</div>
-                <div class="info-box">
-                    <h2>Lili Vidia</h2>
-                    <p>Anak kedua dari <br><b>(Alm) Bpk Holidin & Ibu Martini</b></p>
-                </div>
+        <div class="bg-megamendung"></div>
+        <p>Memohon Rahmat Allah SWT, kami mengundang Bapak/Ibu ke pernikahan:</p>
+        <h1>Ghali Iftikhari</h1>
+        <p>Putra Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
+        <img src="https://www.pngwing.com/en/free-png-acfto" style="width: 50px;" alt="Wayang">
+        <h1>Lili Vidia</h1>
+        <p>Putri (Alm) Bpk Holidin & Ibu Martini</p>
+    </section>
+
+    <section class="slide">
+        <div class="card-container">
+            <div class="info-card">
+                <h3>AKAD NIKAH</h3>
+                <p>08:00 - Selesai<br>Masjid Jami Thoriqul Jannah</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://maps.google.com" alt="QR Maps">
+            </div>
+            <div class="info-card">
+                <h3>RESEPSI</h3>
+                <p>11:00 - Selesai<br>Waroeng Mas Pri, Soreang</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://maps.google.com" alt="QR Maps">
             </div>
         </div>
     </section>
 
     <section class="slide">
-        <div class="content">
-            <div class="card">
-                <div class="info-box">
-                    <h3>AKAD NIKAH</h3>
-                    <p>Sabtu, 14 Feb 2026<br>08:00 - Selesai</p>
-                    <p><b>Masjid Jami Thoriqul Jannah</b><br>Kab. Bandung</p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://maps.google.com" alt="QR Maps">
-                </div>
-                <div class="info-box">
-                    <h3>RESEPSI</h3>
-                    <p>Sabtu, 14 Feb 2026<br>11:00 - Selesai</p>
-                    <p><b>Waroeng Mas Pri</b><br>Soreang, Kab. Bandung</p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://maps.google.com" alt="QR Maps">
-                </div>
-            </div>
+        <h2>Digital Gift</h2>
+        <div class="info-card">
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" width="120"><br>
+            693814256394 - a.n GHALI IFTIKHARI
         </div>
+        <div class="info-card" style="margin-top: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" width="120"><br>
+            1300016257308 - a.n LILI VIDIA
+        </div>
+        <p>Konfirmasi: <a href="https://wa.me/081395559907">081395559907</a></p>
     </section>
 
     <section class="slide">
-        <div class="content">
-            <h2>Digital Envelope</h2>
-            <div class="card">
-                <div class="info-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" class="bank-logo" alt="OCBC"><br>
-                    6938-1425-6394<br>a.n GHALI IFTIKHARI
-                </div>
-                <div class="info-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" class="bank-logo" alt="Mandiri"><br>
-                    1300016257308<br>a.n LILI VIDIA
-                </div>
-            </div>
-            <a href="https://wa.me/081395559907" class="btn">Konfirmasi Kehadiran (WhatsApp)</a>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div class="content">
-            <h2>The Big Day</h2>
-            <div id="countdown">
-                <div class="time-part"><span id="days">00</span><br><small>Hari</small></div>
-                <div class="time-part"><span id="hours">00</span><br><small>Jam</small></div>
-                <div class="time-part"><span id="minutes">00</span><br><small>Menit</small></div>
-                <div class="time-part"><span id="seconds">00</span><br><small>Detik</small></div>
-            </div>
-            <p style="margin-top: 50px;">Sampai Jumpa di Hari Bahagia Kami!</p>
+        <h2>Menghitung Hari</h2>
+        <div id="timer">
+            <div class="countdown-item"><span id="days">00</span><br>Hari</div>
+            <div class="countdown-item"><span id="hours">00</span><br>Jam</div>
+            <div class="countdown-item"><span id="mins">00</span><br>Menit</div>
         </div>
     </section>
 
     <script>
-        // Countdown Logic
-        const targetDate = new Date("Feb 14, 2026 08:00:00").getTime();
-
-        setInterval(() => {
+        // Countdown script
+        const weddingDate = new Date("Feb 14, 2026 08:00:00").getTime();
+        setInterval(function() {
             const now = new Date().getTime();
-            const diff = targetDate - now;
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = d;
-            document.getElementById("hours").innerText = h;
-            document.getElementById("minutes").innerText = m;
-            document.getElementById("seconds").innerText = s;
+            const gap = weddingDate - now;
+            document.getElementById('days').innerText = Math.floor(gap / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('mins').innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
         }, 1000);
     </script>
 </body>
