@@ -1,34 +1,154 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Undangan Pernikahan Ghali & Lili</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #f6f3ea;
-      color: #2f3e2f;
-      text-align: center;
-    }section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Ghali & Lili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #F4F1E1; /* Warna cream sesuai gambar */
+            --gold-border: #B89655;
+            --text-color: #3E3E3E;
+        }
 
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-  margin: 10px 0;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #E5E5E5; /* Warna luar kertas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Crimson Text', serif;
+        }
 
-.card {
-  background: #fffdf6;
-  border-radius: 16px;
-  padding: 30px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0
+        /* Container Utama (Kertas Undangan) */
+        .invitation-card {
+            background-color: var(--bg-cream);
+            width: 90%;
+            max-width: 800px;
+            padding: 60px;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            border: 2px solid var(--gold-border);
+        }
+
+        /* Ornamen Bingkai di Sudut (Mirip gambar) */
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid var(--gold-border);
+            pointer-events: none;
+        }
+
+        /* Gambar Ornamen Sudut */
+        .corner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+        }
+        .top-left { top: 0; left: 0; border-top: 15px solid var(--gold-border); border-left: 15px solid var(--gold-border); border-radius: 5px 0 0 0; width: 40px; height: 40px; }
+        .top-right { top: 0; right: 0; border-top: 15px solid var(--gold-border); border-right: 15px solid var(--gold-border); border-radius: 0 5px 0 0; width: 40px; height: 40px; }
+        .bottom-left { bottom: 0; left: 0; border-bottom: 15px solid var(--gold-border); border-left: 15px solid var(--gold-border); border-radius: 0 0 0 5px; width: 40px; height: 40px; }
+        .bottom-right { bottom: 0; right: 0; border-bottom: 15px solid var(--gold-border); border-right: 15px solid var(--gold-border); border-radius: 0 0 5px 0; width: 40px; height: 40px; }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .opening-text {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        /* Ornamen Tengah Atas Nama */
+        .mid-ornament {
+            width: 150px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* Nama Mempelai */
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .mempelai {
+            flex: 1;
+        }
+
+        .mempelai h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin: 0;
+            color: #2D4335; /* Hijau tua sesuai gambar */
+        }
+
+        .parent-names {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .wayang-center {
+            width: 60px;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            .couple-names { flex-direction: column; }
+            .invitation-card { padding: 30px; }
+            .mempelai h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <div class="content">
+            <div class="opening-text">
+                Dengan memohon Rahmat dan Ridho Allah SWT,<br>
+                kami mengundang Bapak/Ibu/Saudara/i<br>
+                untuk hadir dalam resepsi pernikahan kami:
+            </div>
+
+            <img src="https://www.pngkit.com/png/full/15-155551_floral-ornament-png-decorative-floral-ornament-png.png" class="mid-ornament" alt="ornamen">
+
+            <div class="couple-names">
+                <div class="mempelai">
+                    <h2>Ghali Iftikhari</h2>
+                    <p class="parent-names">Putra pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
+                </div>
+
+                <img src="https://raw.githubusercontent.com/atshadiqi/wayang-vector/master/gunungan.png" class="wayang-center" alt="Wayang">
+
+                <div class="mempelai">
+                    <h2>Lili Vidia</h2>
+                    <p class="parent-names">Putri kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
