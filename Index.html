@@ -3,168 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Ghali & Lili</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Undangan Ghali & Lili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* WARNA DASAR CREAM SESUAI PERMINTAAN */
         :root {
-            --cream: #FDF5E6; /* Cream hangat */
-            --gold-text: #8B6914;
-            --sunda-red: #800000;
+            --bg-color: #F5EFE6; /* Cream sesuai foto */
+            --envelope-color: #E8D5C4; /* Warna amplop rose-cream */
+            --text-green: #2D4335; /* Warna hijau tua di teks foto */
+            --accent-gold: #D4AF37;
         }
 
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            background-color: var(--cream);
-            color: #4A3728;
-            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .slide {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        /* Container Utama Undangan */
+        .wrapper {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        /* Animasi Amplop */
+        .envelope {
             position: relative;
+            width: 300px;
+            height: 200px;
+            background: var(--envelope-color);
+            margin: 150px auto 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Lipatan Atas Amplop */
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 0; height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 120px solid var(--envelope-color);
+            transform-origin: top;
+            transition: transform 0.6s 0.6s;
+            z-index: 3;
+            filter: brightness(0.9);
+        }
+
+        /* Kartu Undangan (Yang keluar dari amplop) */
+        .card {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 280px;
+            height: 380px;
+            background: #FFF;
             padding: 20px;
             box-sizing: border-box;
-            border: 15px solid transparent;
-            /* Border menggunakan motif megamendung */
-            border-image: url('https://www.transparenttextures.com/patterns/batik-fabric.png') 30 round;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.8s 1.2s;
+            z-index: 2;
+            border: 2px solid var(--accent-gold);
+            text-align: center;
         }
 
-        /* ORNAMEN WAYANG DI SETIAP SLIDE */
-        .wayang-decor {
-            width: 120px;
-            opacity: 0.8;
-            margin: 10px auto;
+        /* Animasi Saat Dibuka */
+        .wrapper:hover .envelope::before {
+            transform: rotateX(180deg);
+            z-index: 0;
         }
 
-        /* ANIMASI MEGAMENDUNG BERGERAK */
-        .bg-megamendung {
-            position: absolute;
-            top:0; left:0; width:100%; height:100%;
-            background: url('https://padiumkm.id/product/batik-cirebon-mega-mendung/...') repeat;
-            opacity: 0.07;
-            animation: slideBg 100s linear infinite;
-            z-index: -1;
+        .wrapper:hover .card {
+            transform: translateY(-220px);
         }
 
-        @keyframes slideBg {
-            from { background-position: 0 0; }
-            to { background-position: 1000px 1000px; }
+        /* Styling Konten Kartu (Persis seperti Foto) */
+        .card h2 {
+            color: var(--text-green);
+            font-size: 1.8rem;
+            margin: 10px 0;
+            font-family: 'Playfair Display', serif;
         }
 
-        h1 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--gold-text); margin: 0; }
-        h2 { font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 1.2rem; }
+        .card p {
+            font-size: 0.75rem;
+            color: #555;
+            margin: 5px 0;
+            line-height: 1.4;
+        }
 
-        .card-container {
+        .ornament {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .detail-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            border-top: 1px solid #eee;
+            margin-top: 15px;
+            padding-top: 10px;
+        }
+
+        .qr-section {
+            margin-top: 10px;
+            display: flex;
             justify-content: center;
-            margin-top: 20px;
+            gap: 20px;
         }
 
-        .info-card {
-            background: rgba(255, 255, 255, 0.4);
-            padding: 20px;
-            border: 1px solid var(--gold-text);
-            border-radius: 10px;
-            min-width: 250px;
+        .qr-section img {
+            width: 50px;
+            height: 50px;
         }
 
-        .countdown-item {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px;
-            background: var(--gold-text);
-            color: white;
-            border-radius: 5px;
+        /* Petunjuk */
+        .instruction {
+            position: absolute;
+            top: -50px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-green);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
 
-    <section class="slide">
-        <div class="bg-megamendung"></div>
-        <img src="https://www.pngwing.com/en/free-png-acfto" alt="Wayang Gunungan" class="wayang-decor">
-        <h2>THE WEDDING OF</h2>
-        <h1>Ghali & Lili</h1>
-        <p>14 Februari 2026</p>
-    </section>
+    <div class="wrapper">
+        <div class="instruction">Sentuh/Hover Amplop untuk Membuka</div>
+        
+        <div class="envelope">
+            <div class="card">
+                <img src="https://www.pngwing.com/en/free-png-acfto" class="ornament" alt="Ornamen Sunda">
+                
+                <h2>Ade & Fariz</h2>
+                <p><strong>Sabtu, 14 Februari 2026</strong></p>
+                
+                <div style="margin: 15px 0;">
+                    <p><strong>Akad Nikah: 08.00 WIB</strong><br>
+                    Masjid Jami Thoriqul Jannah</p>
+                    
+                    <p><strong>Resepsi: 11.00 WIB</strong><br>
+                    Waroeng Mas Pri, Soreang</p>
+                </div>
 
-    <section class="slide">
-        <div class="bg-megamendung"></div>
-        <div style="max-width: 600px;">
-            <p style="font-size: 1.5rem; font-weight: bold;">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ...</p>
-            <p><i>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri..."</i> (QS. Ar-Rum: 21)</p>
-            <audio id="arRumAudio" autoplay loop>
-                <source src="URL_AUDIO_ANDA_DISINI.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-    </section>
+                <div class="qr-section">
+                    <div>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com" alt="QR Maps">
+                        <p style="font-size: 0.5rem;">Lokasi Akad</p>
+                    </div>
+                    <div>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com" alt="QR Maps">
+                        <p style="font-size: 0.5rem;">Lokasi Resepsi</p>
+                    </div>
+                </div>
 
-    <section class="slide">
-        <div class="bg-megamendung"></div>
-        <p>Memohon Rahmat Allah SWT, kami mengundang Bapak/Ibu ke pernikahan:</p>
-        <h1>Ghali Iftikhari</h1>
-        <p>Putra Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
-        <img src="https://www.pngwing.com/en/free-png-acfto" style="width: 50px;" alt="Wayang">
-        <h1>Lili Vidia</h1>
-        <p>Putri (Alm) Bpk Holidin & Ibu Martini</p>
-    </section>
-
-    <section class="slide">
-        <div class="card-container">
-            <div class="info-card">
-                <h3>AKAD NIKAH</h3>
-                <p>08:00 - Selesai<br>Masjid Jami Thoriqul Jannah</p>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://maps.google.com" alt="QR Maps">
-            </div>
-            <div class="info-card">
-                <h3>RESEPSI</h3>
-                <p>11:00 - Selesai<br>Waroeng Mas Pri, Soreang</p>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://maps.google.com" alt="QR Maps">
+                <p style="font-size: 0.6rem; margin-top: 10px;">
+                    Hormat Kami,<br>
+                    Keluarga Besar Ghali & Keluarga Besar Lili
+                </p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="slide">
-        <h2>Digital Gift</h2>
-        <div class="info-card">
-            <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" width="120"><br>
-            693814256394 - a.n GHALI IFTIKHARI
-        </div>
-        <div class="info-card" style="margin-top: 10px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" width="120"><br>
-            1300016257308 - a.n LILI VIDIA
-        </div>
-        <p>Konfirmasi: <a href="https://wa.me/081395559907">081395559907</a></p>
-    </section>
-
-    <section class="slide">
-        <h2>Menghitung Hari</h2>
-        <div id="timer">
-            <div class="countdown-item"><span id="days">00</span><br>Hari</div>
-            <div class="countdown-item"><span id="hours">00</span><br>Jam</div>
-            <div class="countdown-item"><span id="mins">00</span><br>Menit</div>
-        </div>
-    </section>
-
-    <script>
-        // Countdown script
-        const weddingDate = new Date("Feb 14, 2026 08:00:00").getTime();
-        setInterval(function() {
-            const now = new Date().getTime();
-            const gap = weddingDate - now;
-            document.getElementById('days').innerText = Math.floor(gap / (1000 * 60 * 60 * 24));
-            document.getElementById('hours').innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById('mins').innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-        }, 1000);
-    </script>
 </body>
 </html>
