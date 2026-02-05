@@ -1,186 +1,34 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Ghali & Lili</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #F5EFE6; /* Cream sesuai foto */
-            --envelope-color: #E8D5C4; /* Warna amplop rose-cream */
-            --text-green: #2D4335; /* Warna hijau tua di teks foto */
-            --accent-gold: #D4AF37;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan Ghali & Lili</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f6f3ea;
+      color: #2f3e2f;
+      text-align: center;
+    }section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            font-family: 'Playfair Display', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  margin: 10px 0;
+}
 
-        /* Container Utama Undangan */
-        .wrapper {
-            perspective: 1000px;
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-        }
-
-        /* Animasi Amplop */
-        .envelope {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            background: var(--envelope-color);
-            margin: 150px auto 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Lipatan Atas Amplop */
-        .envelope::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 0; height: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-top: 120px solid var(--envelope-color);
-            transform-origin: top;
-            transition: transform 0.6s 0.6s;
-            z-index: 3;
-            filter: brightness(0.9);
-        }
-
-        /* Kartu Undangan (Yang keluar dari amplop) */
-        .card {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            width: 280px;
-            height: 380px;
-            background: #FFF;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.8s 1.2s;
-            z-index: 2;
-            border: 2px solid var(--accent-gold);
-            text-align: center;
-        }
-
-        /* Animasi Saat Dibuka */
-        .wrapper:hover .envelope::before {
-            transform: rotateX(180deg);
-            z-index: 0;
-        }
-
-        .wrapper:hover .card {
-            transform: translateY(-220px);
-        }
-
-        /* Styling Konten Kartu (Persis seperti Foto) */
-        .card h2 {
-            color: var(--text-green);
-            font-size: 1.8rem;
-            margin: 10px 0;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .card p {
-            font-size: 0.75rem;
-            color: #555;
-            margin: 5px 0;
-            line-height: 1.4;
-        }
-
-        .ornament {
-            width: 60px;
-            margin-bottom: 10px;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.7rem;
-            border-top: 1px solid #eee;
-            margin-top: 15px;
-            padding-top: 10px;
-        }
-
-        .qr-section {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .qr-section img {
-            width: 50px;
-            height: 50px;
-        }
-
-        /* Petunjuk */
-        .instruction {
-            position: absolute;
-            top: -50px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-green);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="wrapper">
-        <div class="instruction">Sentuh/Hover Amplop untuk Membuka</div>
-        
-        <div class="envelope">
-            <div class="card">
-                <img src="https://www.pngwing.com/en/free-png-acfto" class="ornament" alt="Ornamen Sunda">
-                
-                <h2>Ade & Fariz</h2>
-                <p><strong>Sabtu, 14 Februari 2026</strong></p>
-                
-                <div style="margin: 15px 0;">
-                    <p><strong>Akad Nikah: 08.00 WIB</strong><br>
-                    Masjid Jami Thoriqul Jannah</p>
-                    
-                    <p><strong>Resepsi: 11.00 WIB</strong><br>
-                    Waroeng Mas Pri, Soreang</p>
-                </div>
-
-                <div class="qr-section">
-                    <div>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com" alt="QR Maps">
-                        <p style="font-size: 0.5rem;">Lokasi Akad</p>
-                    </div>
-                    <div>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com" alt="QR Maps">
-                        <p style="font-size: 0.5rem;">Lokasi Resepsi</p>
-                    </div>
-                </div>
-
-                <p style="font-size: 0.6rem; margin-top: 10px;">
-                    Hormat Kami,<br>
-                    Keluarga Besar Ghali & Keluarga Besar Lili
-                </p>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
+.card {
+  background: #fffdf6;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0
